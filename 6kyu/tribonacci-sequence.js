@@ -1,15 +1,10 @@
 function tribonacci(signature, n) {
-  if (n === 0) return [];
-  if (signature.length >= n) return signature.slice(0, n)
-
-  const result = [...signature]
-
-  while (result.length < n) {
-    const threeLast = result.slice(result.length - 3);
-    result.push(threeLast.reduce((total, value) => total + value, 0))
+  while (signature.length < n) {
+    const threeLast = signature.slice(signature.length - 3);
+    signature.push(threeLast.reduce((total, value) => total + value, 0))
   }
 
-  return result;
+  return signature.slice(0, n);
 }
 
 console.log(tribonacci([1, 1, 1], 10));
